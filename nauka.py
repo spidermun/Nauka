@@ -1,8 +1,0 @@
-print("siemano")
-print("siemano")
-print("siemano")
-print("siemano")
-print("siemano")
-print("siemano")
-print("siemano")
-print("siemano")
