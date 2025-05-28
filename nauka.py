@@ -1486,3 +1486,21 @@ zadania
 # zrob_dzwiek(zakso)
 
 # kocham zycie !
+class zwierzeta():
+    def __init__(self, imie):
+        self.imie = imie
+
+    def dzwiek(self):
+        pass
+class pies(zwierzeta):
+    def dzwiek(self):
+        print(f"{self.imie} szczeka: Hau Hau")
+class kot(zwierzeta):
+    def dzwiek(self):
+        print(f"{self.imie} miauczy: Miau Miau")
+class krowa(zwierzeta):
+    def dzwiek(self):
+        print(f"{self.imie} muczy: Muu Muu")
+class owca(zwierzeta):
+    def dzwiek(self):
+        print(f"{self.imie} beczy: Beee Beee")
