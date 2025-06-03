@@ -1504,6 +1504,15 @@ zadania
 # class owca(zwierzeta):
 #     def dzwiek(self):
 #         print(f"{self.imie} beczy: Beee Beee")
+#
+# class osoba:
+#     def __init__(self,imie):
+#         self.imie = imie
+# # str wywoluje czytelny tekst zamist  czegos takiego: <__main__.Osoba object at 0x00000123ABCDEF>
+#     def __str__(self):
+#         return f"Osoba: {self.imie}"
+# os = osoba("Jan")
+# print(os)
 '''
 =====================================
 Static methods
