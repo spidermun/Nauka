@@ -1541,24 +1541,46 @@ najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do
 # print(pracownik1.get_info())
 # print(pracownik2.get_info())
 
-class Pociag:
-    def __init__(self,numer_p,typ_p):
-        self.numer_p = numer_p
-        self.typ_p = typ_p
-
+# class Pociag:
+#     def __init__(self,numer_p,typ_p):
+#         self.numer_p = numer_p
+#         self.typ_p = typ_p
+#
+#     def pokaz_info(self):
+#         return f"Numer Pociagu:{self.numer_p}| Typ pociagu{self.typ_p}"
+#     @staticmethod
+#     def czy_pociag_szybki(typ_p):
+#         szybkie_typy = ["Pendolino", "Express"]
+#         return typ_p in szybkie_typy
+#     def __str__(self):
+#         return f"pociag o numerze {self.numer_p} i typie {self.typ_p}"
+#
+#
+# pociag1 = Pociag("ab134","Pendolino")
+# pociag2 = Pociag("ab1344","Pendolino")
+# pociag3 = Pociag("a3fcd","bullet train")
+#
+# print(pociag1.czy_pociag_szybki("Pendolino"))
+# print(pociag1)
+class samochod:
+    def __init__(self,marka,rocznik):
+        self.marka = marka
+        self.rocznik = rocznik
     def pokaz_info(self):
-        return f"Numer Pociagu:{self.numer_p}| Typ pociagu{self.typ_p}"
-    @staticmethod
-    def czy_pociag_szybki(typ_p):
-        szybkie_typy = ["Pendolino", "Express"]
-        return typ_p in szybkie_typy
+        return F"Marka: {self.marka}, Rocznik: {self.rocznik}"
+
+
     def __str__(self):
-        return f"pociag o numerze {self.numer_p} i typie {self.typ_p}"
+        return f"Samochod marki {self.marka}({self.rocznik})"
 
 
-pociag1 = Pociag("ab134","Pendolino")
-pociag2 = Pociag("ab1344","Pendolino")
-pociag3 = Pociag("a3fcd","bullet train")
+    @staticmethod
+    def czy_klasyk(rocznik):
+        return 2025 - rocznik >= 30
 
-print(pociag1.czy_pociag_szybki("Pendolino"))
-print(pociag1)
+samochod1 = samochod("BMW", 2020)
+samochod2 = samochod("Polonez",1985)
+
+print(samochod1)
+print(samochod1.czy_klasyk(2020))
+print(samochod2.czy_klasyk(1985))
