@@ -1486,21 +1486,39 @@ zadania
 # zrob_dzwiek(zakso)
 
 # kocham zycie !
-class zwierzeta():
-    def __init__(self, imie):
-        self.imie = imie
-
-    def dzwiek(self):
-        pass
-class pies(zwierzeta):
-    def dzwiek(self):
-        print(f"{self.imie} szczeka: Hau Hau")
-class kot(zwierzeta):
-    def dzwiek(self):
-        print(f"{self.imie} miauczy: Miau Miau")
-class krowa(zwierzeta):
-    def dzwiek(self):
-        print(f"{self.imie} muczy: Muu Muu")
-class owca(zwierzeta):
-    def dzwiek(self):
-        print(f"{self.imie} beczy: Beee Beee")
+# class zwierzeta():
+#     def __init__(self, imie):
+#         self.imie = imie
+#
+#     def dzwiek(self):
+#         pass
+# class pies(zwierzeta):
+#     def dzwiek(self):
+#         print(f"{self.imie} szczeka: Hau Hau")
+# class kot(zwierzeta):
+#     def dzwiek(self):
+#         print(f"{self.imie} miauczy: Miau Miau")
+# class krowa(zwierzeta):
+#     def dzwiek(self):
+#         print(f"{self.imie} muczy: Muu Muu")
+# class owca(zwierzeta):
+#     def dzwiek(self):
+#         print(f"{self.imie} beczy: Beee Beee")
+'''
+=====================================
+Static methods
+=====================================
+To metody, które nie wymagają instancji klasy do działania.
+Są one związane z klasą, a nie z jej instancjami.
+Static methods są przydatne, gdy chcesz mieć funkcję, która nie potrzebuje dostępu do atrybutów instancji ani metod klasy.
+najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do stanu obiektu.
+'''
+#
+# class osoba:
+#     def __init__(self,imie):
+#         self.imie = imie
+# # str wywoluje czytelny tekst zamist  czegos takiego: <__main__.Osoba object at 0x00000123ABCDEF>
+#     def __str__(self):
+#         return f"Osoba: {self.imie}"
+# os = osoba("Jan")
+# print(os)
