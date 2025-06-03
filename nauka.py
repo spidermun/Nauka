@@ -25,7 +25,6 @@ Nauka GIta
 SEKCJA: ZMIENNE
 ====================================
 """
-from mailbox import BabylMessage
 # result = name.find('o')
 # result = name.rfind("q")
 # name = name.capitalize() powieksza 1 litere wszytkie inne sa zmieniane na mala litere
@@ -1522,12 +1521,44 @@ Są one związane z klasą, a nie z jej instancjami.
 Static methods są przydatne, gdy chcesz mieć funkcję, która nie potrzebuje dostępu do atrybutów instancji ani metod klasy.
 najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do stanu obiektu.
 '''
-#
-# class osoba:
-#     def __init__(self,imie):
+# class pracownik():
+#     def __init__(self,imie,stopien):
 #         self.imie = imie
-# # str wywoluje czytelny tekst zamist  czegos takiego: <__main__.Osoba object at 0x00000123ABCDEF>
-#     def __str__(self):
-#         return f"Osoba: {self.imie}"
-# os = osoba("Jan")
-# print(os)
+#         self.stopien = stopien
+#
+#     def get_info(self):
+#         return f"imie:{self.imie}, stopien: {self.stopien}"
+#
+#     @staticmethod
+#     def jest_wazny(stopien):
+#         wazne_stopnie = ["Manager","CEO","Szef kuchni"]
+#         return stopien in wazne_stopnie
+#
+# pracownik1 = pracownik("Patryk","Manager")
+# pracownik2 = pracownik("Dawid","Szef kuchni")
+#
+# print(pracownik.jest_wazny("CEO"))
+# print(pracownik1.get_info())
+# print(pracownik2.get_info())
+
+class Pociag:
+    def __init__(self,numer_p,typ_p):
+        self.numer_p = numer_p
+        self.typ_p = typ_p
+
+    def pokaz_info(self):
+        return f"Numer Pociagu:{self.numer_p}| Typ pociagu{self.typ_p}"
+    @staticmethod
+    def czy_pociag_szybki(typ_p):
+        szybkie_typy = ["Pendolino", "Express"]
+        return typ_p in szybkie_typy
+    def __str__(self):
+        return f"pociag o numerze {self.numer_p} i typie {self.typ_p}"
+
+
+pociag1 = Pociag("ab134","Pendolino")
+pociag2 = Pociag("ab1344","Pendolino")
+pociag3 = Pociag("a3fcd","bullet train")
+
+print(pociag1.czy_pociag_szybki("Pendolino"))
+print(pociag1)
