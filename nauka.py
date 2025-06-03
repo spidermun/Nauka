@@ -1562,25 +1562,25 @@ najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do
 #
 # print(pociag1.czy_pociag_szybki("Pendolino"))
 # print(pociag1)
-class samochod:
-    def __init__(self,marka,rocznik):
-        self.marka = marka
-        self.rocznik = rocznik
-    def pokaz_info(self):
-        return F"Marka: {self.marka}, Rocznik: {self.rocznik}"
-
-
-    def __str__(self):
-        return f"Samochod marki {self.marka}({self.rocznik})"
-
-
-    @staticmethod
-    def czy_klasyk(rocznik):
-        return 2025 - rocznik >= 30
-
-samochod1 = samochod("BMW", 2020)
-samochod2 = samochod("Polonez",1985)
-
-print(samochod1)
-print(samochod1.czy_klasyk(2020))
-print(samochod2.czy_klasyk(1985))
+# class samochod:
+#     def __init__(self,marka,rocznik):
+#         self.marka = marka
+#         self.rocznik = rocznik
+#     def pokaz_info(self):
+#         return F"Marka: {self.marka}, Rocznik: {self.rocznik}"
+#
+#
+#     def __str__(self):
+#         return f"Samochod marki {self.marka}({self.rocznik})"
+#
+#
+#     @staticmethod
+#     def czy_klasyk(rocznik):
+#         return 2025 - rocznik >= 30
+#
+# samochod1 = samochod("BMW", 2020)
+# samochod2 = samochod("Polonez",1985)
+#
+# print(samochod1)
+# print(samochod1.czy_klasyk(2020))
+# print(samochod2.czy_klasyk(1985))
