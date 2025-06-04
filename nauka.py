@@ -1631,67 +1631,99 @@ magic methods
 =====================================
 Są automatycznie wywoływane przez Pythona, gdy wykonujesz różne wbudowane operacje – np. tworzysz obiekt, porównujesz, drukujesz, dodajesz itd.
 Pozwalają programiście zdefiniować lub zmienić zachowanie obiektów – np. jak się wyświetlają, jak się dodają, jak się porównują.
-
-
 '''
-class book:
+# class book:
+#
+#
+#     # konstruktor klasy
+#     def __init__(self,tytul,autor,ilosc_stron):
+#         self.tytul = tytul
+#         self.autor = autor
+#         self.ilosc_stron = ilosc_stron
+#
+#     def __str__(self):
+#         return f"Tytuł:{self.tytul},autor:{self.autor}, ilość stron:{self.ilosc_stron}"
+#
+#     def __eq__(self,other):
+#         return self.tytul == other.tytul and self.autor == other.autor
+#
+#     def __lt__(self,other):
+#         return self.ilosc_stron > other.ilosc_stron
+#
+#     def __add__(self,other):
+#         return f"łącznie stron: {self.ilosc_stron + other.ilosc_stron}"
+#
+#     def __contains__(self,keyword):
+#         return keyword in self.tytul or keyword in self.autor
+#
+#     def __getitem__(self,key):
+#         if key == "title":
+#             return self.tytul
+#         elif key == "autor":
+#             return self.autor
+#         elif key == "ilosc_stron":
+#             return self.ilosc_stron
+#         else:
+#             return f"nie znaleziono klucza: {key}"
+#
+# book1= book("hobbit","Tolkien",310)
+# book2 = book("Harry Potter","JK. Rowling",223)
+# book3 = book("Potop","sienkiewicz",333)
+#
+#
+# print(book3['title'])
+# print(book3['audio'])
+#
+# # print(book3)
+# # print(book1 == book2)
+# # print(book1 < book3)
+# # print(book1 > book3)
+# # print(book1 + book3)
+# # print("Potop" in book3)
+# # print("Harry" in book3)
+'''
+=====================================
+@property
+=====================================
+To dekorator w Pythonie, który zamienia metodę w „zwykły atrybut”.
+Dzięki temu możesz wywołać funkcję bez nawiasów (), jakby to była zwykła zmienna.
 
+w skrocie: nie musisz używać nawiasów, żeby uzyskać wartość z metody.
+'''
 
-    # konstruktor klasy
-    def __init__(self,tytul,autor,ilosc_stron):
-        self.tytul = tytul
-        self.autor = autor
-        self.ilosc_stron = ilosc_stron
+class Prostokąt:
+    def __init__(self,szerokosc,wysokosc):
+        self._szerokosc = szerokosc
+        self._wysokosc = wysokosc
 
-    def __str__(self):
-        return f"Tytuł:{self.tytul},autor:{self.autor}, ilość stron:{self.ilosc_stron}"
+    @property
+    def szerokosc(self):
+        return f'{self._szerokosc:.1f}cm'
 
-    def __eq__(self,other):
-        return self.tytul == other.tytul and self.autor == other.autor
+    @property
+    def wysokosc(self):
+        return f'{self._wysokosc:.1f}cm'
 
-    def __lt__(self,other):
-        return self.ilosc_stron > other.ilosc_stron
-
-    def __add__(self,other):
-        return f"łącznie stron: {self.ilosc_stron + other.ilosc_stron}"
-
-    def __contains__(self,keyword):
-        return keyword in self.tytul or keyword in self.autor
-
-    def __getitem__(self,key):
-        if key == "title":
-            return self.tytul
-        elif key == "autor":
-            return self.autor
-        elif key == "ilosc_stron":
-            return self.ilosc_stron
+    @szerokosc.setter
+    def szerokosc(self, nowa_szerokosc):
+        if nowa_szerokosc > 0:
+            self._szerokosc = nowa_szerokosc
         else:
-            return f"nie znaleziono klucza: {key}"
+            raise ValueError("Szerokość musi być większa od zera")
 
-book1= book("hobbit","Tolkien",310)
-book2 = book("Harry Potter","JK. Rowling",223)
-book3 = book("Potop","sienkiewicz",333)
-
-
-print(book3['title'])
-print(book3['audio'])
-
-# print(book3)
-# print(book1 == book2)
-# print(book1 < book3)
-# print(book1 > book3)
-# print(book1 + book3)
-# print("Potop" in book3)
-# print("Harry" in book3)
+    @wysokosc.setter
+    def wysokosc(self, nowa_wysokosc):
+        if  nowa_wysokosc > 0:
+            self._wysokosc = nowa_wysokosc
+        else:
+            raise ValueError("Wysokosc musi być większa od zera")
 
 
 
+prostokąt = Prostokąt(3,4)
 
+prostokąt.szerokosc = 5
+#prostokąt.szerokosc = 0  # To spowoduje błąd, ponieważ szerokość musi być większa od zera
 
-
-
-
-
-
-
-
+print(prostokąt.szerokosc)
+print(prostokąt.wysokosc)
