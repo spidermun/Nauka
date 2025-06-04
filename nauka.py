@@ -1591,37 +1591,107 @@ Class Methods
 Class methods są metodami, które są związane z klasą, a nie z jej instancjami.
 Są one oznaczone dekoratorem @classmethod i przyjmują jako pierwszy argument klasę (cls).
 '''
-class Student:
-    #parametry klasy
-    liczba = 0
-    total_wiek = 0
-    #konstruktor klasy
-    def __init__(self,imie,wiek):
-        self.imie = imie
-        self.wiek = wiek
-        Student.liczba += 1
-        Student.total_wiek += wiek
+# class Student:
+#     #parametry klasy
+#     liczba = 0
+#     total_wiek = 0
+#     #konstruktor klasy
+#     def __init__(self,imie,wiek):
+#         self.imie = imie
+#         self.wiek = wiek
+#         Student.liczba += 1
+#         Student.total_wiek += wiek
+#
+#     #instant method
+#     def daj_info(self):
+#         return f"{self.imie} {self.wiek}"
+#     #liczenie studentow
+#     @classmethod
+#     def zlicz_liczbe(cls):
+#         return F"całkowita liczba studentow to: {cls.liczba}"
+#
+#     # #liczenie sredniego wieku studentow
+#     @classmethod
+#     def sredni_wiek(cls):
+#         if cls.liczba == 0:
+#             return "Brak studentów"
+#         return f"Sredni wiek studentow to: {cls.total_wiek / cls.liczba:.2f} lat"
+#
+# # przypisanie i uzycie
+# s1 = Student("Michał", 17)
+# s2 = Student("Michał", 100)
+# s3 = Student("Michał", 65)
+# s4 = Student("Michał", 3)
+#
+# print(Student.zlicz_liczbe())
+# print(Student.sredni_wiek())
+'''
+=====================================
+magic methods
+=====================================
+Są automatycznie wywoływane przez Pythona, gdy wykonujesz różne wbudowane operacje – np. tworzysz obiekt, porównujesz, drukujesz, dodajesz itd.
+Pozwalają programiście zdefiniować lub zmienić zachowanie obiektów – np. jak się wyświetlają, jak się dodają, jak się porównują.
 
-    #instant method
-    def daj_info(self):
-        return f"{self.imie} {self.wiek}"
-    #liczenie studentow
-    @classmethod
-    def zlicz_liczbe(cls):
-        return F"całkowita liczba studentow to: {cls.liczba}"
 
-    # #liczenie sredniego wieku studentow
-    @classmethod
-    def sredni_wiek(cls):
-        if cls.liczba == 0:
-            return "Brak studentów"
-        return f"Sredni wiek studentow to: {cls.total_wiek / cls.liczba:.2f} lat"
+'''
+class book:
 
-# przypisanie i uzycie
-s1 = Student("Michał", 17)
-s2 = Student("Michał", 100)
-s3 = Student("Michał", 65)
-s4 = Student("Michał", 3)
 
-print(Student.zlicz_liczbe())
-print(Student.sredni_wiek())
+    # konstruktor klasy
+    def __init__(self,tytul,autor,ilosc_stron):
+        self.tytul = tytul
+        self.autor = autor
+        self.ilosc_stron = ilosc_stron
+
+    def __str__(self):
+        return f"Tytuł:{self.tytul},autor:{self.autor}, ilość stron:{self.ilosc_stron}"
+
+    def __eq__(self,other):
+        return self.tytul == other.tytul and self.autor == other.autor
+
+    def __lt__(self,other):
+        return self.ilosc_stron > other.ilosc_stron
+
+    def __add__(self,other):
+        return f"łącznie stron: {self.ilosc_stron + other.ilosc_stron}"
+
+    def __contains__(self,keyword):
+        return keyword in self.tytul or keyword in self.autor
+
+    def __getitem__(self,key):
+        if key == "title":
+            return self.tytul
+        elif key == "autor":
+            return self.autor
+        elif key == "ilosc_stron":
+            return self.ilosc_stron
+        else:
+            return f"nie znaleziono klucza: {key}"
+
+book1= book("hobbit","Tolkien",310)
+book2 = book("Harry Potter","JK. Rowling",223)
+book3 = book("Potop","sienkiewicz",333)
+
+
+print(book3['title'])
+print(book3['audio'])
+
+# print(book3)
+# print(book1 == book2)
+# print(book1 < book3)
+# print(book1 > book3)
+# print(book1 + book3)
+# print("Potop" in book3)
+# print("Harry" in book3)
+
+
+
+
+
+
+
+
+
+
+
+
