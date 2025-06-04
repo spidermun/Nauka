@@ -1584,3 +1584,44 @@ najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do
 # print(samochod1)
 # print(samochod1.czy_klasyk(2020))
 # print(samochod2.czy_klasyk(1985))
+'''
+=====================================
+Class Methods
+=====================================
+Class methods są metodami, które są związane z klasą, a nie z jej instancjami.
+Są one oznaczone dekoratorem @classmethod i przyjmują jako pierwszy argument klasę (cls).
+'''
+class Student:
+    #parametry klasy
+    liczba = 0
+    total_wiek = 0
+    #konstruktor klasy
+    def __init__(self,imie,wiek):
+        self.imie = imie
+        self.wiek = wiek
+        Student.liczba += 1
+        Student.total_wiek += wiek
+
+    #instant method
+    def daj_info(self):
+        return f"{self.imie} {self.wiek}"
+    #liczenie studentow
+    @classmethod
+    def zlicz_liczbe(cls):
+        return F"całkowita liczba studentow to: {cls.liczba}"
+
+    # #liczenie sredniego wieku studentow
+    @classmethod
+    def sredni_wiek(cls):
+        if cls.liczba == 0:
+            return "Brak studentów"
+        return f"Sredni wiek studentow to: {cls.total_wiek / cls.liczba:.2f} lat"
+
+# przypisanie i uzycie
+s1 = Student("Michał", 17)
+s2 = Student("Michał", 100)
+s3 = Student("Michał", 65)
+s4 = Student("Michał", 3)
+
+print(Student.zlicz_liczbe())
+print(Student.sredni_wiek())
