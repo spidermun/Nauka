@@ -1718,6 +1718,15 @@ class Prostokąt:
         else:
             raise ValueError("Wysokosc musi być większa od zera")
 
+    @szerokosc.deleter
+    def szerokosc(self):
+        del self._szerokosc
+        print("Szerokosc bedzie usunieta")
+
+    @wysokosc.deleter
+    def wysokosc(self):
+        del self._wysokosc
+        print("wysokosc bedzie usunieta")
 
 
 prostokąt = Prostokąt(3,4)
@@ -1725,5 +1734,5 @@ prostokąt = Prostokąt(3,4)
 prostokąt.szerokosc = 5
 #prostokąt.szerokosc = 0  # To spowoduje błąd, ponieważ szerokość musi być większa od zera
 
-print(prostokąt.szerokosc)
-print(prostokąt.wysokosc)
+del prostokąt.szerokosc
+del prostokąt.wysokosc
