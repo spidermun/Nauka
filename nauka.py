@@ -1516,10 +1516,11 @@ zadania
 =====================================
 Static methods
 =====================================
-To metody, które nie wymagają instancji klasy do działania.
-Są one związane z klasą, a nie z jej instancjami.
-Static methods są przydatne, gdy chcesz mieć funkcję, która nie potrzebuje dostępu do atrybutów instancji ani metod klasy.
-najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do stanu obiektu.
+ zwykła funkcja, która mieszka w klasie, ale nie obchodzi jej żaden obiekt tej klasy.
+
+Nie potrzebuje self, nie interesuje się żadnymi danymi zapisanymi w obiekcie, nie korzysta też z cls 
+(czyli z samej klasy). Po prostu jest zapisana w klasie, żeby było logicznie, gdzie powinna być, ale działa niezależnie od niej.
+to taka ogolna wiedza, która nie jest związana z żadnym konkretnym obiektem.
 '''
 # class pracownik():
 #     def __init__(self,imie,stopien):
@@ -1588,8 +1589,8 @@ najlepsze zastosowanie to funkcje pomocnicze, które nie potrzebują dostępu do
 =====================================
 Class Methods
 =====================================
-Class methods są metodami, które są związane z klasą, a nie z jej instancjami.
-Są one oznaczone dekoratorem @classmethod i przyjmują jako pierwszy argument klasę (cls).
+metoda, która działa na samej klasie, a nie na konkretnym obiekcie.
+Nie interesuje jej self (czyli konkretna instancja/obiekt), tylko cls – cała klasa.
 '''
 # class Student:
 #     #parametry klasy
@@ -1690,49 +1691,74 @@ Dzięki temu możesz wywołać funkcję bez nawiasów (), jakby to była zwykła
 
 w skrocie: nie musisz używać nawiasów, żeby uzyskać wartość z metody.
 '''
+#
+# class Prostokąt:
+#     def __init__(self,szerokosc,wysokosc):
+#         self._szerokosc = szerokosc
+#         self._wysokosc = wysokosc
+#     #property do pobierania wartosci
+#     @property
+#     def szerokosc(self):
+#         return f'{self._szerokosc:.1f}cm'
+#
+#     @property
+#     def wysokosc(self):
+#         return f'{self._wysokosc:.1f}cm'
+#     #settery do ustawiania nowych wartosci
+#     @szerokosc.setter
+#     def szerokosc(self, nowa_szerokosc):
+#         if nowa_szerokosc > 0:
+#             self._szerokosc = nowa_szerokosc
+#         else:
+#             raise ValueError("Szerokość musi być większa od zera")
+#
+#     @wysokosc.setter
+#     def wysokosc(self, nowa_wysokosc):
+#         if  nowa_wysokosc > 0:
+#             self._wysokosc = nowa_wysokosc
+#         else:
+#             raise ValueError("Wysokosc musi być większa od zera")
+#     #delete aby usuwac
+#     @szerokosc.deleter
+#     def szerokosc(self):
+#         del self._szerokosc
+#         print("Szerokosc bedzie usunieta")
+#
+#     @wysokosc.deleter
+#     def wysokosc(self):
+#         del self._wysokosc
+#         print("wysokosc bedzie usunieta")
+#
+#
+# prostokąt = Prostokąt(3,4)
+#
+# prostokąt.szerokosc = 5
+# #prostokąt.szerokosc = 0  # To spowoduje błąd, ponieważ szerokość musi być większa od zera
+#
+# del prostokąt.szerokosc
+# del prostokąt.wysokosc
+'''
+=====================================
+decoratory
+=====================================
+Dekorator to funkcja, która dodaje coś do innej funkcji, bez zmieniania jej kodu.
+Oryginalna funkcja przekazywana jest jako argument do dekoratora
+'''
 
-class Prostokąt:
-    def __init__(self,szerokosc,wysokosc):
-        self._szerokosc = szerokosc
-        self._wysokosc = wysokosc
+def add_sprinkles(func):
+    def wrapper(*args, **kwargs):
+        print("Dodałes posypke")
+        func(*args, **kwargs)
+    return wrapper
+def add_fudge(func):
+    def wrapper(*args, **kwargs):
+        print("dodales fudge🍫")
+        func(*args, **kwargs)
+    return wrapper
 
-    @property
-    def szerokosc(self):
-        return f'{self._szerokosc:.1f}cm'
+@add_sprinkles
+@add_fudge
+def get_ice_cream(flavor):
+    print(f"Oto twoje {flavor} lody🍧")
 
-    @property
-    def wysokosc(self):
-        return f'{self._wysokosc:.1f}cm'
-
-    @szerokosc.setter
-    def szerokosc(self, nowa_szerokosc):
-        if nowa_szerokosc > 0:
-            self._szerokosc = nowa_szerokosc
-        else:
-            raise ValueError("Szerokość musi być większa od zera")
-
-    @wysokosc.setter
-    def wysokosc(self, nowa_wysokosc):
-        if  nowa_wysokosc > 0:
-            self._wysokosc = nowa_wysokosc
-        else:
-            raise ValueError("Wysokosc musi być większa od zera")
-
-    @szerokosc.deleter
-    def szerokosc(self):
-        del self._szerokosc
-        print("Szerokosc bedzie usunieta")
-
-    @wysokosc.deleter
-    def wysokosc(self):
-        del self._wysokosc
-        print("wysokosc bedzie usunieta")
-
-
-prostokąt = Prostokąt(3,4)
-
-prostokąt.szerokosc = 5
-#prostokąt.szerokosc = 0  # To spowoduje błąd, ponieważ szerokość musi być większa od zera
-
-del prostokąt.szerokosc
-del prostokąt.wysokosc
+get_ice_cream("wanilliowe ")
