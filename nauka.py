@@ -1018,7 +1018,7 @@ SEKCJA:slotmachine
 #
 # if __name__ == "__main__":
 #     main()
-'''
+'''0
 ====================================
 SEKCJA:Program szyfrowania
 ====================================
@@ -1744,21 +1744,252 @@ decoratory
 Dekorator to funkcja, która dodaje coś do innej funkcji, bez zmieniania jej kodu.
 Oryginalna funkcja przekazywana jest jako argument do dekoratora
 '''
+#
+# def add_sprinkles(func):
+#     def wrapper(*args, **kwargs):
+#         print("Dodałes posypke")
+#         func(*args, **kwargs)
+#     return wrapper
+# def add_fudge(func):
+#     def wrapper(*args, **kwargs):
+#         print("dodales fudge🍫")
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# @add_sprinkles
+# @add_fudge
+# def get_ice_cream(flavor):
+#     print(f"Oto twoje {flavor} lody🍧")
+#
+# get_ice_cream("wanilliowe ")
+'''
+=====================================
+exceptions (wyjątki)
+=====================================
+Wyjątki to błędy, które pojawiają się podczas działania programu.
+Np. gdy Python próbuje coś zrobić, ale coś idzie nie tak — np. dzielenie przez zero, brak pliku, czy błąd w nazwie zmiennej.
+'''
+'''
+=====================================
+try-except
+=====================================
+Wyjątki to błędy, które pojawiają się podczas działania programu.
 
-def add_sprinkles(func):
-    def wrapper(*args, **kwargs):
-        print("Dodałes posypke")
-        func(*args, **kwargs)
-    return wrapper
-def add_fudge(func):
-    def wrapper(*args, **kwargs):
-        print("dodales fudge🍫")
-        func(*args, **kwargs)
-    return wrapper
+Np. gdy Python próbuje coś zrobić, ale coś idzie nie tak — np. dzielenie przez zero, brak pliku, czy błąd w nazwie zmiennej.
 
-@add_sprinkles
-@add_fudge
-def get_ice_cream(flavor):
-    print(f"Oto twoje {flavor} lody🍧")
+3 kroki:
+try: Tutaj piszesz kod, który może wywołać wyjątek.
+except: Tutaj piszesz, co ma się stać, gdy wyjątek wystąpi.
+finally: (opcjonalne) Tutaj możesz napisać kod, który zawsze się wykona, niezależnie od tego, czy wyjątek wystąpił, czy nie.
+'''
+# try:
+#     num = int(input("Podaj liczbę: "))
+#     print(1 / num)
+# except ZeroDivisionError:
+#     print("Nie można dzielić przez zero!")
+# except ValueError:
+#     print("to nie liczba!")
+# except Exception:
+#     print("Wystąpił nieoczekiwany błąd!")
+# finally:
+#     print("koniec")
+# try:
+#     num = int(input("Podaj liczbe:"))
+#     print(1 / num)
+# except ZeroDivisionError as e:
+#     print(f"Nie można dzielić przez zero! Błąd: {e}")
+# except ValueError as e:
+#     print(f"To nie jest liczba! Błąd: {e}")
+# except Exception as e:
+#     print(f"Wystąpił nieoczekiwany błąd! Błąd: {e}")
+'''
+=====================================
+Python file detection
+=====================================
+Ten program służy do wykrywania plików w Pythonie
+'''
+# import os
+# file_path = "C:\\Users\\user\\Desktop"
+#
+# if os.path.exists(file_path):
+#     print(f"Lokalizacja pliku: {file_path} istnieje.")
+#     if os.path.isfile(file_path):
+#         print("To jest plik.")
+#     elif os.path.isdir(file_path):
+#         print("to jest folder")
+# else:
+#     print(f"Lokalizacja pliku: {file_path} nie istnieje.")
+#
+# powtorzenie
+#
+# import os
+#
+# file_path = "C:\\Users\\user\\Desktop\\test"
+# if os.path.exists(file_path):
+#     print(f"Plik istnieje,a jego sciezka to: {file_path}")
+#     if os.path.isfile(file_path):
+#         print("To jest plik.")
+#     elif os.path.isdir(file_path):
+#         print("To jest folder.")
+# else:
+#     print(f"Plik nie istnieje!")
+'''
+=====================================
+phyton write file(.txt, .csv, .json)
+=====================================
+    |mode – najczęściej używane tryby:
+    |mode	Znaczenie	Opis działania
+    
+"r"	    read (czytaj)	Domyślny tryb – otwiera plik do czytania. Błąd, jeśli plik nie istnieje.
+"w"	    write (pisz)	Tworzy nowy plik lub nadpisuje istniejący!
+"a"	    append (dopisz)	Dodaje dane na końcu pliku (nie kasuje istniejących).
+"x"	    create (stwórz nowy)	Tworzy nowy plik. Błąd, jeśli już istnieje.
+"b"	    binary (binarny)	Dodajesz do innych trybów, np. "rb" albo "wb" dla plików binarnych (np. zdjęć).
+"+"	    read + write (czytaj + pisz)	Dodajesz do innych trybów: "r+", "w+", "a+".
+'''
+# import json
+# import csv
+#
+# tworzenie pliku csv
 
-get_ice_cream("wanilliowe ")
+# pracownicy =[["Imie","wiek","praca"],
+#              ["Michał",30,"Szlachcic"],
+#              ["Jarema",35,"Wojewoda Ruski"],
+#              ["Jan Kazimierz",27,"Król Rzeczypospolitej Polski"],]
+#
+# file_path = "C:/Users/user/Desktop/output.csv"
+# try:
+#     with open(file=file_path, mode="w") as file:
+#         writer = csv.writer(file)
+#         for row in pracownicy:
+#             writer.writerow(row)
+#         print(f"plik csv '{file_path}' zostal stworzony ")
+# except FileExistsError:
+#     print("ten plik juz istnieje")
+
+
+# tworzenie pliku json
+# import json
+#
+# pracownicy_json = {
+#     "pracownicy": [
+#         {"imie": "Michał", "wiek": 30, "praca": "Szlachcic"},
+#         {"imie": "Jarema", "wiek": 35, "praca": "Wojewoda Ruski"},
+#         {"imie": "Jan Kazimierz", "wiek": 27, "praca": "Król Rzeczypospolitej Polski"}
+#     ]
+# }
+# file_path_json = 'C:\\Users\\user\\Desktop\\output.json'
+# try:
+#     with open(file_path_json, mode="w") as file:
+#         json.dump(pracownicy_json, file,indent=4)
+#         print(f"plik json '{file_path_json}' zostal stworzony ")
+# except FileExistsError:
+#     print("ten plik json juz istnieje")
+#
+#
+# pracownicy_txt = {
+#     "Spangebob"
+# }
+#
+# file_path_txt = "C:\\Users\\user\\Desktop\\output.txt"
+# try:
+#     with open(file_path_txt,mode="w")as file:
+#         for pracownik_txt in pracownicy_txt:
+#             file.write(f"{pracownik_txt}\n")
+#         print("Plik tekstowy zostal stworzony")
+# except FileNotFoundError:
+#     print("plik zostal juz stworzony")
+
+
+'''
+=====================================
+phyton read file(.txt, .csv, .json)
+=====================================
+'''
+# file_path = "C:\\Users\\user\\Desktop\\output.txt"
+# try:
+#     with open(file_path, mode="r") as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError:
+#     print("Ten plik nie zostal znaleziony")
+# except PermissionError:
+#     print("nie masz uprawnień do odczytu pliku")
+
+
+# import json
+# file_path = "C:\\Users\\user\\Desktop\\output.json"
+# try:
+#     with open(file_path, mode="r") as file:
+#         content = json.load(file)
+#         print(content)
+# except FileNotFoundError:
+#     print("Ten plik nie zostal znaleziony")
+# except PermissionError:
+#     print("nie masz uprawnień do odczytu pliku")
+
+# import csv
+# file_path = "C:\\Users\\user\\Desktop\\output.csv"
+# try:
+#     with open(file_path, mode="r") as file:
+#         content = csv.reader(file)
+#         for line in content:
+#             print(line)
+#         print(content)
+# except FileNotFoundError:
+#     print("Ten plik nie zostal znaleziony")
+# except PermissionError:
+#     print("nie masz uprawnień do odczytu pliku")
+'''
+=====================================
+Daty i czas
+=====================================
+'''
+import datetime
+#
+# data = datetime.date(2025,6,6)
+# dzisiaj = datetime.date.today()
+#
+# time = datetime.time(13,21,)
+# now = datetime.datetime.now()
+#
+# now = now.strftime("%H:%M:%S \n%d.%M.%y")
+#
+# target_datetime = datetime.datetime(2025,1,1,12,0,0)
+# current_datetime = datetime.datetime.now()
+# if target_datetime < current_datetime:
+#     print("Czas docelowy jest w przeszłości")
+# else:
+#     print("Czas docelowy jest w przyszłości")
+'''
+=====================================
+Zegarek
+=====================================
+'''
+# import time
+# import datetime
+# import pygame
+#
+# def set_alarm(czas_zegarka):
+#     print(f"Alarm ustawiono na {czas_zegarka}.")
+#     sound_file = "gta-v-notification.mp3"
+#     _działa = True
+#     while _działa:
+#         obecny_czas = datetime.datetime.now().strftime("%H:%M:%S")
+#         print(obecny_czas)
+#         if obecny_czas == czas_zegarka:
+#             print("wstawaj gnoju")
+#
+#             pygame.mixer.init()
+#             pygame.mixer.music.load(sound_file)
+#             pygame.mixer.music.play(loops=4)
+#             while pygame.mixer.music.get_busy():
+#                 time.sleep(1)
+#
+#             _działa = False
+#
+#         time.sleep(1)
+#
+# if __name__ == "__main__":
+#     czas_zegarka = input("Podaj czas alaramu (HH:MM:SS): ")
+#     set_alarm(czas_zegarka)
