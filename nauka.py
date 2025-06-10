@@ -2029,3 +2029,37 @@ threading(Thread)(target=my_function, args=(arg1, arg2))
 # nić3.join()
 #
 # print("Wszystkie obowiazki Wykonane!")
+'''
+====================================
+Jak połaczyc API uzywajac Pythona
+====================================
+'''
+# import requests
+#
+# podstawowy_url = "https://pokeapi.co/api/v2/"
+#
+# def get_pokemon_inf(imie):
+#     url = f"{podstawowy_url}/pokemon/{imie}"
+#     odpowiedz = requests.get(url)
+#     #print(odpowiedz)
+#
+#     if odpowiedz.status_code == 200:
+#         pokemon_data = odpowiedz.json()
+#         return pokemon_data
+#     else:
+#         print(f"nie znaleziono informacji,ERROR {odpowiedz.status_code}")
+#
+# pokemon_name = "gengar"
+# pokemon_info = get_pokemon_inf(pokemon_name)
+#
+# if pokemon_info:
+#     print(f"Imie: {pokemon_info['name'].capitalize()}")
+#     print(f"id: {pokemon_info['id']}")
+#     print(f"Wysokosc: {pokemon_info['height']}")
+#     print(f"Waga: {pokemon_info['weight']}")
+#
+'''
+====================================
+Pierwsze gui
+====================================
+'''
