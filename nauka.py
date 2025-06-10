@@ -1993,3 +1993,39 @@ Zegarek
 # if __name__ == "__main__":
 #     czas_zegarka = input("Podaj czas alaramu (HH:MM:SS): ")
 #     set_alarm(czas_zegarka)
+'''
+=====================================
+multithreading
+=====================================
+Uzywane do wykonywania wielu zadan w tym samym czasie
+dobre do Input/output
+threading(Thread)(target=my_function, args=(arg1, arg2))
+'''
+# import threading
+# import time
+#
+#
+# def walk_dog(imie_psa,):
+#     time.sleep(8)
+#     print (f"skonczyles wyprowadzanie {imie_psa}")
+# def wyrzucanie_smieci():
+#     time.sleep(2)
+#     print("wyrzuciles smieci")
+# def nadanie_listu():
+#     time.sleep(4)
+#     print("nadales list")
+# #nici=thread
+# nić1 = threading.Thread(target=walk_dog, args=("Lili",))
+# nić1.start()
+#
+# nić2 = threading.Thread(target=wyrzucanie_smieci)
+# nić2.start()
+#
+# nić3 = threading.Thread(target=nadanie_listu)
+# nić3.start()
+# # join aby czekać na zakończenie wątków
+# nić1.join()
+# nić2.join()
+# nić3.join()
+#
+# print("Wszystkie obowiazki Wykonane!")
