@@ -2062,4 +2062,76 @@ Jak połaczyc API uzywajac Pythona
 ====================================
 Pierwsze gui
 ====================================
-'''
+PyQt5 !!
+# '''
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow
+# from PyQt5.QtGui import QIcon
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Moja pierwsze gui") # Ustawia tytuł okna
+#         #self.setGeometry(x,y,width,height)
+#         self.setGeometry(700,300,500,500) # Ustawia pozycję i rozmiar okna
+#         self.setWindowIcon(QIcon("Lottery_Slots.png")) # Ustawia ikonę okna
+#
+#
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == "__main__":
+#     main()
+#
+
+
+
+
+
+
+
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow,QLabel
+# from PyQt5.QtGui import QIcon
+# from PyQt5.QtGui import QFont
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Moja pierwsze gui") # Ustawia tytuł okna
+#         #self.setGeometry(x,y,width,height)
+#         self.setGeometry(700,300,500,500) # Ustawia pozycję i rozmiar okna
+#         self.setWindowIcon(QIcon("Lottery_Slots.png")) # Ustawia ikonę okna
+#
+#         label = QLabel("Hello",self)
+#         label.setFont(QFont("Arial",40))  # Ustawia czcionkę etykiety
+#         label.setGeometry(0,0,500,100)  # Ustawia wyrównanie etykiety do środka
+#         label.setStyleSheet("color: #4d0f25;"
+#                             "background-color: #736d6f;"
+#                             "font-style: italic;"
+#                             "font-weight: bold;"
+#                             "text-decoration: underline")
+#         # label.setAlignment(Qt.AlignTop) # Ustawia wyrównanie do góry
+#         # label.setAlignment(Qt.AlignVCenter)  # Ustawia wyrównanie do środka
+#         # label.setAlignment(Qt.AlignBottom) #ustawia na dole
+#         # label.setAlignment(Qt.AlignRight) #ustawia na dole
+#         # label.setAlignment(Qt.AlignHCenter) #ustawia na srodek
+#         # label.setAlignment(Qt.AlignLeft) #ustawia na lewo
+#
+#
+#         # label.setAlignment(Qt.AlignHCenter | Qt.AlignTop)# srodek gora
+#         #  label.setAlignment(Qt.AlignCenter)# srodek
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == "__main__":
+#     main()
