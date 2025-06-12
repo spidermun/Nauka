@@ -815,13 +815,15 @@ SEKCJA:Match-case statement
 '''
 # def is_weekend(day):
 #     match day:
-#         case  "Poniedziałek" | "Wtorek" | "Sroda" | "Czwartek" | "Piątek":
+#         case  "Ponideziałek" | "Wtorek" | "Sroda" | "Czwartek" | "Piątek":
 #             return False
 #         case 'sobota' | "Niedziela":
 #             return True
 #         case _:
 #             return "Niepoprawny dzień tygodnia"
 # print(input("Wpisz dzien tygodnia: ").capitalize())
+
+
 '''
 ====================================
 SEKCJA:module
@@ -1745,23 +1747,23 @@ Dekorator to funkcja, która dodaje coś do innej funkcji, bez zmieniania jej ko
 Oryginalna funkcja przekazywana jest jako argument do dekoratora
 '''
 #
-# def add_sprinkles(func):
-#     def wrapper(*args, **kwargs):
-#         print("Dodałes posypke")
-#         func(*args, **kwargs)
-#     return wrapper
-# def add_fudge(func):
-#     def wrapper(*args, **kwargs):
-#         print("dodales fudge🍫")
-#         func(*args, **kwargs)
-#     return wrapper
-#
-# @add_sprinkles
-# @add_fudge
-# def get_ice_cream(flavor):
-#     print(f"Oto twoje {flavor} lody🍧")
-#
-# get_ice_cream("wanilliowe ")
+def add_sprinkles(func):
+    def wrapper(*args, **kwargs):
+        print("Dodałes posypke")
+        func(*args, **kwargs)
+    return wrapper
+def add_fudge(func):
+    def wrapper(*args, **kwargs):
+        print("dodales fudge🍫")
+        func(*args, **kwargs)
+    return wrapper
+
+@add_sprinkles
+@add_fudge
+def get_ice_cream(flavor):
+    print(f"Oto twoje {flavor} lody🍧")
+
+get_ice_cream("wanilliowe ")
 '''
 =====================================
 exceptions (wyjątki)
