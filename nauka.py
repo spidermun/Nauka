@@ -1747,23 +1747,23 @@ Dekorator to funkcja, która dodaje coś do innej funkcji, bez zmieniania jej ko
 Oryginalna funkcja przekazywana jest jako argument do dekoratora
 '''
 #
-def add_sprinkles(func):
-    def wrapper(*args, **kwargs):
-        print("Dodałes posypke")
-        func(*args, **kwargs)
-    return wrapper
-def add_fudge(func):
-    def wrapper(*args, **kwargs):
-        print("dodales fudge🍫")
-        func(*args, **kwargs)
-    return wrapper
-
-@add_sprinkles
-@add_fudge
-def get_ice_cream(flavor):
-    print(f"Oto twoje {flavor} lody🍧")
-
-get_ice_cream("wanilliowe ")
+# def add_sprinkles(func):
+#     def wrapper(*args, **kwargs):
+#         print("Dodałes posypke")
+#         func(*args, **kwargs)
+#     return wrapper
+# def add_fudge(func):
+#     def wrapper(*args, **kwargs):
+#         print("dodales fudge🍫")
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# @add_sprinkles
+# @add_fudge
+# def get_ice_cream(flavor):
+#     print(f"Oto twoje {flavor} lody🍧")
+#
+# get_ice_cream("wanilliowe ")
 '''
 =====================================
 exceptions (wyjątki)
@@ -1968,9 +1968,9 @@ import datetime
 Zegarek
 =====================================
 '''
-# import time
-# import datetime
-# import pygame
+import time
+import datetime
+import pygame
 #
 # def set_alarm(czas_zegarka):
 #     print(f"Alarm ustawiono na {czas_zegarka}.")
@@ -1995,6 +1995,7 @@ Zegarek
 # if __name__ == "__main__":
 #     czas_zegarka = input("Podaj czas alaramu (HH:MM:SS): ")
 #     set_alarm(czas_zegarka)
+help(time)
 '''
 =====================================
 multithreading
