@@ -260,17 +260,71 @@ def czy_palindrom(lista):
 #         print(liczba,end=" ")
 #     print()
 
+#
+# liczba = 1234  # tutaj wpisz dowolną liczbę całkowitą
+# suma = 0
+# for cyfra in str(liczba):
+#     suma += int(cyfra)
+#     pass
+#
+#
+#
+# owoce = ["Banan","Borówka","Truskawki","Mango"]
+#
+# for i in range(len(owoce)):
+#     if i == 1:
+#         print(owoce[i])
 
-liczba = 1234  # tutaj wpisz dowolną liczbę całkowitą
 suma = 0
-for cyfra in str(liczba):
-    suma += int(cyfra)
-    pass
+n = 100
+for num in range(1,n+1):
+    suma += num
+
+n = 50
+parzyste = [p for p in range(1,50+1) if p % 2 == 0]
 
 
+for wiersz in range(1,11):
+    for kolumna in range(1,11):
+        wynik  = wiersz * kolumna
+    #     print(f"{wiersz} x {kolumna} = {wynik}")
+    # print()
 
-owoce = ["Banan","Borówka","Truskawki","Mango"]
+# try:
+#     a = int(input("Podaj liczbe a:"))
+#     b = int(input("Podaj liczbe b:"))
+#     wynik = a / b
+# except ValueError:
+#     print("To nie liczba")
+# except ZeroDivisionError:
+#     print("Nie dziel przez zero")
+# else:
+#     print(f"{a} / {b} = {wynik}")
+#
+# try:
+#     liczba = int(input("Podaj liczbe: "))
+# except ValueError:
+#     print("To nie liczba")
+# else:
+#     print(liczba)
+# try:
+#     with open("Madagaskar.txt" "r" )as f:
+#         plik = f.read()
+# except FileNotFoundError:
+#     print("Plik nie istnieje")
+# else:
+#     print(plik)
+#
+# obiekty =  (123, 'abc', [1,2,3], {1: "a"})
+# for i in obiekty:
+#     print(type(i))
 
-for i in range(len(owoce)):
-    if i == 1:
-        print(owoce[i])
+liczba_calkowita = 12
+print(type(liczba_calkowita))
+str_liczba = str(liczba_calkowita)
+print(type(str_liczba))
+str_l = "13"
+int_liczba = int(str_l)
+print(type(int_liczba))
+dane = input("Podaj cokolwiek: "); sprawdzenie = type(dane); print(f"User podal dane: {sprawdzenie}")
+lista = [1,2,3,5]; krotka = tuple(lista); print(type(krotka)); lista1 = list(krotka); print(type(lista1))
