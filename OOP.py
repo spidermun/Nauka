@@ -124,15 +124,56 @@ from listakontaktow import wyswietl_wszytko
 # Task1.display_tasks()
 # Task1.change_data("Poucz sie","2023/06/06")
 # Task1.display_tasks()
-
-class bank():
-    def __init__(self):
+#
+# class Ptak():
+#     def __init__(self,imie):
+#         self.__imie = imie
+#
+#     # @property
+#     def imie(self):
+#         return self.__imie
+#
+#
+# class Matma():
+#     @staticmethod
+#     def dodawanie(a,b):
+#         return a + b
+# print(Matma.dodawanie(1,2))
+class Konto():
+    def __init__(self,numer_konta):
         self._balance = 0
+        self._numer_konta = numer_konta
 
+
+    #Numer konta
+    @property
+    def numer_konta(self):
+        return self._numer_konta
+
+    @numer_konta.setter
+    def numer_konta(self,wartosc):
+        print( "Nie mozesz go modyfikowac")
+
+    @numer_konta.deleter
+    def numer_konta(self,wartosc):
+        print("nie mozesz go usunac")
+
+    # balans
     @property
     def balance(self):
-        return self._balance
+            return self._balance
+    @balance.setter
+    def balance(self, wartosc):
+        if wartosc < 0:
+            print("nie mozna wyplacic piniedzy")
+        else:
+            self._balance = wartosc
+
+    @balance.deleter
+    def balance(self):
+        print("Nie mozesz usunac atrybutu balans")
 
 
-
-
+konto1 = Konto(12345)
+konto1.numer_konta += 1
+print(konto1.numer_konta)
