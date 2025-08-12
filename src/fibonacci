@@ -1,0 +1,7 @@
+n = 8
+a,b = 0,1
+suma = []
+while a <= n:
+    a,b = b, a + b
+    suma.append(a)
+print(suma)
