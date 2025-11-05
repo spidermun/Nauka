@@ -1,1 +1,1 @@
-Troche syf tu zrobilem
+
