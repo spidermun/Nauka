@@ -110,3 +110,11 @@
 #     if i % 2 == 0:
 #         parzyste.append(i)
 # print(parzyste)
+
+n = 12345
+
+while True:
+    modulo = n % 10
+    dziel_cal = modulo // 10
+    print(dziel_cal)
+    break
