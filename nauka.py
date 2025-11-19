@@ -2138,4 +2138,8 @@ PyQt5 !!
 #
 # if __name__ == "__main__":
 #     main()
-print("halo")
+# <<<<<<< HEAD
+# print("halo")
+# =======
+# print("Hello World!")
+# >>>>>>> origin/main
