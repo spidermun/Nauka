@@ -1,5 +1,6 @@
 import time
 
+from reportlab.graphics.charts.legends import TotalAnnotator
 from ursina.prefabs.primitives import model_names
 
 from listakontaktow import wyswietl_wszytko
@@ -139,41 +140,125 @@ from listakontaktow import wyswietl_wszytko
 #     def dodawanie(a,b):
 #         return a + b
 # print(Matma.dodawanie(1,2))
-class Konto():
-    def __init__(self,numer_konta):
-        self._balance = 0
-        self._numer_konta = numer_konta
+# class Konto():
+#     def __init__(self,numer_konta):
+#         self._balance = 0
+#         self._numer_konta = numer_konta
+#
+#
+#     #Numer konta
+#     @property
+#     def numer_konta(self):
+#         return self._numer_konta
+#
+#     @numer_konta.setter
+#     def numer_konta(self,wartosc):
+#         print( "Nie mozesz go modyfikowac")
+#
+#     @numer_konta.deleter
+#     def numer_konta(self,wartosc):
+#         print("nie mozesz go usunac")
+#
+#     # balans
+#     @property
+#     def balance(self):
+#             return self._balance
+#     @balance.setter
+#     def balance(self, wartosc):
+#         if wartosc < 0:
+#             print("nie mozna wyplacic piniedzy")
+#         else:
+#             self._balance = wartosc
+#
+#     @balance.deleter
+#     def balance(self):
+#         print("Nie mozesz usunac atrybutu balans")
+#
+#
+# konto1 = Konto(12345)
+# konto1.numer_konta += 1
+# print(konto1.numer_konta)
+
+class Coordinate(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def distance(self, other):
+        # self to pierwsza współrzędna, other to druga
+        x_diff_sq = (self.x - other.x) ** 2
+        y_diff_sq = (self.y - other.y) ** 2
+        return (x_diff_sq + y_diff_sq) ** 0.5
+
+    def __str__(self):
+        return f"<{self.x},{self.y}>"
+
+    def __add__(self,other):
+        return Coordinate(self.x + other.x, self.y + other.y)
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    def __sub__(self, other):
+        return Coordinate(self.x - other.x, self.y - other.y)
+    def __len__(self):
+        pass
+
+# c = Coordinate(x=3, y=4)
+# origin = Coordinate(x=0,y=0)
+# print(c.distance(origin))   # Wywołanie metody 'distance' na obiekcie 'c'
+# print(c)
+
+# class Valute:
+#     def __init__(self,gallions,knut,sickles):
+#         self.gallions = gallions
+#         self.sickles = sickles
+#         self.knut = knut
+#     def __add__(self, other):
+#         # self to obiekt po lewej stronie (+), other to obiekt po prawej [31, 32]
+#         new_gallions = self.gallions + other.gallions
+#         new_sickles = self.sickles + other.sickles
+#         new_knuts = self.knut + other.knut
+#         # Zwracamy nowy obiekt Vault, który jest sumą [33, 34]
+#         return Valute(new_gallions,new_knuts,new_sickles)
+#     def __str__(self):
+#         return f"Gallions:{self.gallions}, Sickles: {self.sickles}, Knuts: {self.knut}"
+# if __name__ == "__main__":
+#     Potter = Valute(100, 50, 20)
+#     Weasly = Valute(25, 50, 20)
+#
+#     total = Potter + Weasly
+#
+#     print({f"Potter:{Potter}"})
+#     print({f"Weasly:{Weasly}"})
+#     print(f"Total:{total}")
+class Student:
+    def __init__(self, name, house):
+        # Wywołanie Settera (dla walidacji)
+        self.name = name
+        self.house = house
+
+        # Getter dla 'house'
+        @property
+        def house(self):
+            return self._house #zwraca chroniony atrybut
+
+        #tworzmy settera dla Domu
+        @house.setter
+        def house(self,house):
+            if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+                #rzucenie wyjatku w przypadku nieprawidlowaej wartosci
+                raise ValueError("Zly Dom")
+            self._house= house
+
+        #towrzymy gettera dla name
+        @property
+        def name(self):
+            return self._name
+
+        #towrzymy settera dla name
+        @name.setter #nazwa metody + .setter
+        def name(self,name):
+            if not name:
+                raise ValueError("zle Imie kolego :) ")
+            self.name = name
 
 
-    #Numer konta
-    @property
-    def numer_konta(self):
-        return self._numer_konta
-
-    @numer_konta.setter
-    def numer_konta(self,wartosc):
-        print( "Nie mozesz go modyfikowac")
-
-    @numer_konta.deleter
-    def numer_konta(self,wartosc):
-        print("nie mozesz go usunac")
-
-    # balans
-    @property
-    def balance(self):
-            return self._balance
-    @balance.setter
-    def balance(self, wartosc):
-        if wartosc < 0:
-            print("nie mozna wyplacic piniedzy")
-        else:
-            self._balance = wartosc
-
-    @balance.deleter
-    def balance(self):
-        print("Nie mozesz usunac atrybutu balans")
-
-
-konto1 = Konto(12345)
-konto1.numer_konta += 1
-print(konto1.numer_konta)
