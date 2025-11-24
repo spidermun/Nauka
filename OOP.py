@@ -179,28 +179,28 @@ from listakontaktow import wyswietl_wszytko
 # konto1.numer_konta += 1
 # print(konto1.numer_konta)
 
-class Coordinate(object):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def distance(self, other):
-        # self to pierwsza współrzędna, other to druga
-        x_diff_sq = (self.x - other.x) ** 2
-        y_diff_sq = (self.y - other.y) ** 2
-        return (x_diff_sq + y_diff_sq) ** 0.5
-
-    def __str__(self):
-        return f"<{self.x},{self.y}>"
-
-    def __add__(self,other):
-        return Coordinate(self.x + other.x, self.y + other.y)
-    def __eq__(self, other):
-        return self.x == other.x and self.y == other.y
-    def __sub__(self, other):
-        return Coordinate(self.x - other.x, self.y - other.y)
-    def __len__(self):
-        pass
+# class Coordinate(object):
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def distance(self, other):
+#         # self to pierwsza współrzędna, other to druga
+#         x_diff_sq = (self.x - other.x) ** 2
+#         y_diff_sq = (self.y - other.y) ** 2
+#         return (x_diff_sq + y_diff_sq) ** 0.5
+#
+#     def __str__(self):
+#         return f"<{self.x},{self.y}>"
+#
+#     def __add__(self,other):
+#         return Coordinate(self.x + other.x, self.y + other.y)
+#     def __eq__(self, other):
+#         return self.x == other.x and self.y == other.y
+#     def __sub__(self, other):
+#         return Coordinate(self.x - other.x, self.y - other.y)
+#     def __len__(self):
+#         pass
 
 # c = Coordinate(x=3, y=4)
 # origin = Coordinate(x=0,y=0)
@@ -230,35 +230,56 @@ class Coordinate(object):
 #     print({f"Potter:{Potter}"})
 #     print({f"Weasly:{Weasly}"})
 #     print(f"Total:{total}")
-class Student:
-    def __init__(self, name, house):
-        # Wywołanie Settera (dla walidacji)
+# class Student:
+#     def __init__(self, name, house):
+#         # Wywołanie Settera (dla walidacji)
+#         self.name = name
+#         self.house = house
+#
+#         # Getter dla 'house'
+#         @property
+#         def house(self):
+#             return self._house #zwraca chroniony atrybut
+#
+#         #tworzmy settera dla Domu
+#         @house.setter
+#         def house(self,house):
+#             if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+#                 #rzucenie wyjatku w przypadku nieprawidlowaej wartosci
+#                 raise ValueError("Zly Dom")
+#             self._house= house
+#
+#         #towrzymy gettera dla name
+#         @property
+#         def name(self):
+#             return self._name
+#
+#         #towrzymy settera dla name
+#         @name.setter #nazwa metody + .setter
+#         def name(self,name):
+#             if not name:
+#                 raise ValueError("zle Imie kolego :) ")
+#             self.name = name
+
+class Wizard(object):
+    # klasa nadrzedna
+    def __init__(self,name):
         self.name = name
+class Student(Wizard):
+    def __init__(self,name,house):
+        super().__init__(name)
         self.house = house
+    @classmethod
+    def get(cls):
+        # Ta netida dzuaka ba poziomie klasy (cls)ls a nie obiekcie
+        name = input("name: ")
+        house = input("House: ")
+        #zwracamy nowa instancje klasy (uzywajac cls zamiast student)
+        return cls(name,house)
 
-        # Getter dla 'house'
-        @property
-        def house(self):
-            return self._house #zwraca chroniony atrybut
+student = Student.get()
 
-        #tworzmy settera dla Domu
-        @house.setter
-        def house(self,house):
-            if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
-                #rzucenie wyjatku w przypadku nieprawidlowaej wartosci
-                raise ValueError("Zly Dom")
-            self._house= house
-
-        #towrzymy gettera dla name
-        @property
-        def name(self):
-            return self._name
-
-        #towrzymy settera dla name
-        @name.setter #nazwa metody + .setter
-        def name(self,name):
-            if not name:
-                raise ValueError("zle Imie kolego :) ")
-            self.name = name
-
-
+#Metody Statyczne (@staticmethod): Metody statyczne są oznaczane dekoratorem @staticmethod.
+# Nie przyjmują ani referencji do instancji (self), ani do klasy (cls).
+# Działają jak zwykłe funkcje, ale są logicznie zgrupowane w ramach klasy,
+# często jako funkcje pomocnicze lub narzędziowe, które nie muszą zmieniać stanu obiektu ani klasy.
