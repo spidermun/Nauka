@@ -46,4 +46,10 @@ def sum_parzyste(nums: list[int]):
             suma += liczba
     return suma
 
-print(sum_parzyste([1,2,3,4,6]))
+
+
+def tabliczka(n):
+    li = 10
+    for i in range(1,li+1):
+        print(f"{n}*{i}={n*i}")
+print(tabliczka(5))
